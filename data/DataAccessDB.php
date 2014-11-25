@@ -179,7 +179,7 @@ require_once __DIR__ .'/config.php';
 				{$this->limit} 
 			";
 		}
-		echo $this->query;
+		
 	}
 
 	/**
