@@ -1,7 +1,7 @@
 <?php
 	//Crud de la clase persona
 	require_once 'Entidad.php';
-	class persona extends Entidad
+	class Persona extends Entidad
 	{
 		const TABLE_NAME = "Personas";//Este lo deje de esa manera porque en el diagrama entidad relacion esta asi, de cambiar me avisan. Dont worry, aqui si va como esta en la bd. 
 		private $PersonaID;
