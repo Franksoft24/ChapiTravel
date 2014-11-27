@@ -1,23 +1,23 @@
 <?php
 	
 	require_once 'DAO.php';
-	require_once '/../entities/Personas.php';
+	require_once '/../entities/Persona.php';
 
 
 	class PersonaDAO extends DataAccessObject{
 	
-		public function delete(Personas $entidad){
-			$this->data->delete(Personas::TABLE_NAME, 
+		public function delete(Persona $entidad){
+			$this->data->delete(Persona::TABLE_NAME, 
 				array('PersonaID' => $entidad->getPersonaID()));
 			return $this->data->result();
 		}
 
-		public function update(Personas $entidad){
-			$this->data->update(Personas::TABLE_NAME, $entidad->toArray(), 
+		public function update(Persona $entidad){
+			$this->data->update(Persona::TABLE_NAME, $entidad->toArray(), 
 				array('PersonaID' => $entidad->getPersonaID()));
 			return $this->data->result();
 		}
-		public function getByID(Personas $entidad){
+		public function getByID(Persona $entidad){
 			$this->data->get($entidad::TABLE_NAME);
 			$whereArray = array('PersonaID = ' => $entidad->getPersonaID());
 			$this->data->where($whereArray);
