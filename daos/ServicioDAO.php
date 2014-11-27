@@ -18,5 +18,14 @@ class ServicioDAO extends DataAccessObject{
 		return $this->data->result();
 	}
 
+	public function getByID(Servicio $entidad){
+		$this->data->get($entidad::TABLE_NAME);
+
+		$whereArray = array('ServicioID = ' => $entidad->getServicioID());
+		$this->data->where($whereArray);
+
+		return $this->data->result();
+	}
+
 }
 

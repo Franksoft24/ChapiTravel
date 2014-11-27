@@ -18,5 +18,14 @@ class DestinoDAO extends DataAccessObject{
 		return $this->data->result();
 	}
 
+	public function getByID(Destino $entidad){
+		$this->data->get($entidad::TABLE_NAME);
+
+		$whereArray = array('DestinoID = ' => $entidad->getDestinoID());
+		$this->data->where($whereArray);
+
+		return $this->data->result();
+	}
+
 }
 

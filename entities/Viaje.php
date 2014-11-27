@@ -1,8 +1,8 @@
 <?php
 require_once 'Entidad.php';
-class Viajes extends Entidad{
+class Viaje extends Entidad{
 
-	const TABLE_NAME = "viajes";
+	const TABLE_NAME = "Viajes";
 	private $ViajeID;
 	protected $Nombre;
 	protected $CantidadPlazas;

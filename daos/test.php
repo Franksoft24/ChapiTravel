@@ -11,7 +11,7 @@
 		<?php
 
 			$viajeDAO = new ViajeDAO();
-			$viaje = new Viajes();
+			$viaje = new Viaje();
 
 			//------------------------------
 			// INSERTING A TRIP
