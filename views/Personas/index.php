@@ -13,6 +13,9 @@
 				<tr>
 					<th style="display:none;">ID</th>
 					<th>Nombre</th>
+					<th>Documento</th>
+					<th>Email</th>
+					<th>Telefono</th>
 					
 					<th></th>
 				</tr>			
@@ -28,10 +31,13 @@
 				foreach($personas as $persona){
 			
 				echo "<tr>
-						<td style='display:none;'>$persona->personaID</td>
+						<td style='display:none;'>$persona->PersonaID</td>
 						<td>$persona->Nombre</td>
+						<td>$persona->Documento</td>
+						<td>$persona->Email</td>
+						<td>$persona->Telefono</td>
 											
-						<td><a href='Gestionarpersona.php?id=$persona->personaID'>Editar</a> - <a href='Gestionarpersona.php?eliminarpersona=$persona->personaID'>Eliminar</a></td>
+						<td><a href='GestionarPersona.php?id=$persona->PersonaID'>Editar</a> - <a href='GestionarPersona.php?eliminarPersona=$persona->PersonaID'>Eliminar</a></td>
 						</tr>";			
 				}
 			

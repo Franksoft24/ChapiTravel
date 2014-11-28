@@ -90,7 +90,7 @@ include('/../../daos/PersonaDAO.php');
 		
 		</table>
 		<button type="submit">Aceptar</button>
-		
+		<a href="GestionarPersona.php" >Nuevo<a>
 	</form>
 </body>
 

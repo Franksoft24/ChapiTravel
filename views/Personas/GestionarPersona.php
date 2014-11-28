@@ -1,6 +1,6 @@
 <?php
 
-include('/../../daos/Persona.php');	
+include('/../../entities/Persona.php');	
 include('/../../daos/PersonaDAO.php');
 include('/../../Enums/Rol.php');		
 
@@ -14,10 +14,9 @@ include('/../../Enums/Rol.php');
 		$persona->setDocumento($_POST['txtDocumento']);	
 		$persona->setTelefono($_POST['txtTelefono']);
 		$persona->setEmail($_POST['txtEmail']);
-		$persona->setRol($_POST['txtRol']);
+		$persona->setRol($_POST['cmbRol']);
 		$persona->setCuentaPaypal($_POST['txtCuentaPaypal']);
 		$persona->setClave($_POST['txtClave']);
-		
 		if($_POST['txtID'] > 0){
 			$personaDAO->update($persona);			
 		}else{
@@ -29,7 +28,7 @@ include('/../../Enums/Rol.php');
 		$persona->setpersonaID($_GET['id']);
 		$personaObtenido=$personaDAO->getByID($persona)[0];
 		$persona->setPersonaID($personaObtenido->PersonaID);	
-		$persona->setNombre($personaObtenido->NombreID);			
+		$persona->setNombre($personaObtenido->Nombre);			
 		$persona->setDocumento($personaObtenido->Documento);	
 		$persona->setTelefono($personaObtenido->Telefono);
 		$persona->setEmail($personaObtenido->Email);
@@ -83,24 +82,12 @@ include('/../../Enums/Rol.php');
 			<tr>
 				<td>Rol:</td>
 				<td>
-				<select id='cmbRol' name='cmbRol' ">
-				
-				
-				<?php
-					
-					
-					$roles = Role::getConstList(true);
-				
-					
-					while($rol = current($roles)){
-					
-					if($rol != $persona->getRol()){
-						echo "<option value='$rol'>". key($roles) ."</option>";			
-					}else{
-						echo "<option selected='selected' value='$rol'>"+ key($roles) +"</option>";	
-					}
-				}
-				?>
+				<select id='cmbRol' name='cmbRol' >
+					<option value="C" <?php if($persona->getRol() == "C"){echo "selected='selected'";} ?>>Cliente</option>
+					<option value="R" <?php if($persona->getRol() == "R"){echo "selected='selected'";} ?>>Representante</option>
+					<option value="A" <?php if($persona->getRol() == "A"){echo "selected='selected'";} ?>>Administrador	</option>
+					<option value="E" <?php if($persona->getRol() == "E"){echo "selected='selected'";} ?>>Empleado</option>
+					<option value="P" <?php if($persona->getRol() == "P"){echo "selected='selected'";} ?>>Proveedor</option>
 				</select>
 				</td>
 			</tr>
@@ -108,9 +95,13 @@ include('/../../Enums/Rol.php');
 				<td>Cuenta Paypal:</td>
 				<td><input type='email' id='txtCuentaPaypal'  name='txtCuentaPaypal' value="<?php echo $persona->getCuentaPaypal()?>"/></td>
 			</tr>
+			<tr>
+				<td>Clave:</td>
+				<td><input type='password' id='txtClave'  name='txtClave' value="<?php echo $persona->getClave()?>"/></td>
+			</tr>
 		</table>
 		<button type="submit">Aceptar</button>
-		
+		<a href="index.php" >Volver Atras<a>
 	</form>
 </body>
 
