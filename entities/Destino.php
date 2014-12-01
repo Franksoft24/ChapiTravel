@@ -2,7 +2,7 @@
 require_once 'Entidad.php';
 class Destino extends Entidad{
 
-	const TABLE_NAME = "Destinos";
+	const TABLE_NAME = "destino";
 	private $destinoID;
 	protected $nombre;
 	protected $lugar;

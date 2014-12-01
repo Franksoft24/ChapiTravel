@@ -66,7 +66,7 @@ include('/../../daos/PersonaDAO.php');
 			<tr>
 				<td>Proveedor:</td>
 				<td>
-				<select id='cmbProveedor' name='cmbProveedor' ">
+				<select id='cmbProveedor' name='cmbProveedor' >
 				
 				
 				<?php

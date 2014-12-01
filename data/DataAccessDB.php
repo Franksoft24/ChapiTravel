@@ -212,6 +212,34 @@ require_once __DIR__ .'/config.php';
 			}
 		}
 
+		echo mysqli_error($this->connection);
+		return $result;
+	}
+
+
+	public function executeQuery($query){
+		$resultSet= array();
+		$result = mysqli_query($this->connection, $query);
+		//echo $result;
+		if($result){
+			if(preg_match('/INSERT /', $query)){
+				return mysqli_insert_id($this->connection);
+			}
+
+			if(preg_match('/SELECT /', $query)){
+				
+				if(mysqli_num_rows($result) > 0){
+					while ($row = mysqli_fetch_object($result)){
+						$resultSet[] = $row;
+					}
+					
+				}
+				return $resultSet;
+			}
+		}
+
+		echo mysqli_error($this->connection);
+		//echo $this->query;
 		return $result;
 	}
 
