@@ -14,6 +14,7 @@
 					<th style="display:none;">ID</th>
 					<th>Nombre</th>
 					<th>Precio</th>
+					<th>Codigo</th>
 					<th></th>
 				</tr>			
 			</thead>
@@ -28,10 +29,11 @@
 				foreach($servicios as $servicio){
 			
 				echo "<tr>
-						<td style='display:none;'>$servicio->ServicioID</td>
-						<td>$servicio->Nombre</td>
-						<td>$servicio->Precio</td>					
-						<td><a href='GestionarServicio.php?id=$servicio->ServicioID'>Editar</a> - <a href='GestionarServicio.php?eliminarServicio=$servicio->ServicioID'>Eliminar</a></td>
+						<td style='display:none;'>$servicio->idservicio</td>
+						<td>$servicio->descripcion</td>
+						<td>$servicio->precio</td>	
+						<td>$servicio->codigo</td>							
+						<td><a href='GestionarServicio.php?id=$servicio->idservicio'>Editar</a> - <a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio'>Eliminar</a></td>
 						</tr>";			
 				}
 			

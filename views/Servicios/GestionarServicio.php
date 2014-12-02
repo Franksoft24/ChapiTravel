@@ -1,18 +1,20 @@
 <?php
 
 include('/../../daos/ServicioDAO.php');	
-include('/../../daos/PersonaDAO.php');		
+include('/../../daos/ProveedorDAO.php');		
 
 	$servicioDAO = new ServicioDAO();
 	$servicio = new Servicio();
 
 	if (count($_POST) > 0){
 			
-		$servicio->setServicioID($_POST['txtID']);	
-		$servicio->setNombre($_POST['txtNombre']);			
+		$servicio->setIdservicio($_POST['txtID']);	
+		$servicio->setDescripcion($_POST['txtNombre']);			
 		$servicio->setPrecio($_POST['txtPrecio']);	
-		$servicio->setProveedorID($_POST['cmbProveedor']);
-		
+		$servicio->setCodigo($_POST['txtCodigo']);
+		$servicio->setIdproveedor($_POST['cmbProveedor']);
+		$servicio->setHabilitado($_POST['cmbHabilitado']);
+	
 		if($_POST['txtID'] > 0){
 			$servicioDAO->update($servicio);			
 		}else{
@@ -21,14 +23,16 @@ include('/../../daos/PersonaDAO.php');
 		 header("Location:../Servicios/index.php");	
 		exit();				
 	}else if(isset($_GET['id']) && $_GET['id'] > 0){			
-		$servicio->setServicioID($_GET['id']);
+		$servicio->setIdservicio($_GET['id']);
 		$servicioObtenido=$servicioDAO->getByID($servicio)[0];
-		$servicio->setServicioID($servicioObtenido->ServicioID);
-		$servicio->setNombre($servicioObtenido->Nombre);
-		$servicio->setPrecio($servicioObtenido->Precio);
-		$servicio->setProveedorID($servicioObtenido->ProveedorID);
+		$servicio->setIdservicio($_GET['id']);
+		$servicio->setDescripcion($servicioObtenido->descripcion);
+		$servicio->setPrecio($servicioObtenido->precio);
+		$servicio->setIdproveedor($servicioObtenido->idproveedor);
+		$servicio->setCodigo($servicioObtenido->codigo);
+		$servicio->setHabilitado($servicioObtenido->habilitado);
 	}else if(isset($_GET['eliminarServicio']) && $_GET['eliminarServicio']>0){
-		$servicio->setServicioID($_GET['eliminarServicio']);
+		$servicio->setIdservicio($_GET['eliminarServicio']);
 		$servicioDAO->delete($servicio);
 		header("Location:../Servicios/index.php");
 		exit();		
@@ -52,12 +56,16 @@ include('/../../daos/PersonaDAO.php');
 		
 			<tr style="display:none;">
 				<td>ID:</td>
-				<td><input type='text' id='txtID' name='txtID' value="<?php echo $servicio->getServicioID() ?>"/></td>
+				<td><input type='text' id='txtID' name='txtID' value="<?php echo $servicio->getIdservicio() ?>"/></td>
 			</tr>
 			
 			<tr>
-				<td>Nombre:</td>
-				<td><input type='text' id='txtNombre' maxlength="50" name='txtNombre' value="<?php echo $servicio->getNombre()?>"/></td>
+				<td>Descripcion:</td>
+				<td><input type='text' id='txtNombre' maxlength="50" name='txtNombre' value="<?php echo $servicio->getDescripcion()?>"/></td>
+			</tr>
+			<tr>
+				<td>Codigo:</td>
+				<td><input type='text' id='txtCodigo' maxlength="50" name='txtCodigo' value="<?php echo $servicio->getCodigo()?>"/></td>
 			</tr>
 			<tr>
 				<td>Precio:</td>
@@ -70,27 +78,36 @@ include('/../../daos/PersonaDAO.php');
 				
 				
 				<?php
-					$personaDAO = new PersonaDAO();
-					$persona = new Persona();
+					$proveedorDAO = new ProveedorDAO();
+					$proveedor = new Proveedor();
 					
-					$personas = $personaDAO->get($persona);
+					$proveedores = $proveedorDAO->get($proveedor);
 				
 					
-					foreach($personas as $persona){
-					if($persona->PersonaID != $servicio->getProveedorID()){
-						echo "<option value='$persona->PersonaID'>$persona->Nombre</option>";			
+					foreach($proveedores as $persona){
+					if($persona->idproveedor != $servicio->getIdproveedor()){
+						echo "<option value='$persona->idproveedor'>$persona->nombres</option>";			
 					}else{
-						echo "<option selected='selected' value='$persona->PersonaID'>$persona->Nombre</option>";	
+						echo "<option selected='selected' value='$persona->idproveedor'>$persona->nombres</option>";	
 					}
 				}
 				?>
 				</select>
 				</td>
 			</tr>
-		
+			
+			<tr>
+				<td>Estado:</td>
+				<td>
+				<select id='cmbHabilitado' name='cmbHabilitado' >
+					<option value="1" <?php if($servicio->getHabilitado() == 1){echo "selected='selected'";} ?>>Habilitado</option>
+					<option value="0" <?php if($servicio->getHabilitado() == 0){echo "selected='selected'";} ?>>Deshabilitado</option>
+				</select>
+				</td>
+			</tr>
 		</table>
 		<button type="submit">Aceptar</button>
-		<a href="GestionarPersona.php" >Nuevo<a>
+		<a href="Index.php" >Volver Atras<a>
 	</form>
 </body>
 
