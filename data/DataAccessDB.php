@@ -131,7 +131,6 @@ require_once __DIR__ .'/config.php';
 	}
 
 	public function query($query){
-		$this->query = '';
 		$this->query = $query;
 		return $this->result();
 	}
@@ -140,18 +139,12 @@ require_once __DIR__ .'/config.php';
 
 		//INSERT
 		if(!empty($this->insert)){
-			$this->select = '';
-			$this->update = '';
-			$this->delete = '';
 			$this->query = '';
 			$this->query = $this->insert;	
 		}
 		
 		//UPDATE
 		if(!empty($this->update)){
-			$this->select = '';
-			$this->delete = '';
-			$this->insert = '';
 			$this->query = '';
 			$this->query = "
 				{$this->update}
@@ -161,9 +154,6 @@ require_once __DIR__ .'/config.php';
 		
 		//DELETE
 		if(!empty($this->delete)){
-			$this->select = '';
-			$this->update = '';
-			$this->insert = '';
 			$this->query = '';
 			$this->query = "
 				{$this->delete}
@@ -173,15 +163,12 @@ require_once __DIR__ .'/config.php';
 
 		//SELECT
 		if(!empty($this->select)){
-			$this->delete = '';
-			$this->update = '';
-			$this->insert = '';
-			$this->query = '';
 			$this->where = !empty($this->where) ? "WHERE {$this->where}" : $this->where;
 			$this->group_by = !empty($this->group_by) ? "GROUP BY {$this->group_by}" : $this->group_by;
 			$this->having = !empty($this->having) ? "HAVING {$this->having}" : $this->having;
 			$this->order_by  = !empty($this->order_by) ? "ORDER BY {$this->order_by}" : $this->order_by;
 			$this->limit =  !empty($this->limit) ? "LIMIT {$this->limit}" : $this->limit;
+			$this->query = '';
 			$this->query = "
 				{$this->select}
 				{$this->join} 
@@ -192,7 +179,6 @@ require_once __DIR__ .'/config.php';
 				{$this->limit} 
 			";
 		}
-
 		
 	}
 
@@ -215,18 +201,18 @@ require_once __DIR__ .'/config.php';
 			}
 
 			if(preg_match('/SELECT /', $this->query)){
+				
 				if(mysqli_num_rows($result) > 0){
 					while ($row = mysqli_fetch_object($result)){
 						$resultSet[] = $row;
 					}
+					
 				}
 				return $resultSet;
 			}
 		}
 
 		echo mysqli_error($this->connection);
-		
-
 		return $result;
 	}
 
@@ -272,8 +258,7 @@ require_once __DIR__ .'/config.php';
 	private function wrapInSingleQuotes(&$value){
 		if(is_string($value)){
 			$value = "'".mysqli_real_escape_string($this->connection, $value)."'";
-		}
-		if(is_int($value)){
+		}else if(is_int($value)){
 			$value = mysqli_real_escape_string($this->connection, $value);
 		}
 
@@ -293,6 +278,6 @@ require_once __DIR__ .'/config.php';
             return "{$values}";
         }
 	}
-
 }
+
 

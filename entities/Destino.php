@@ -3,41 +3,55 @@ require_once 'Entidad.php';
 class Destino extends Entidad{
 
 	const TABLE_NAME = "destino";
-	private $iddestino;
+	private $destinoID;
 	protected $nombre;
-	protected $ubicacion;
+	protected $lugar;
+	protected $descripcion;
 	protected $foto;
 
-	public function getIddestino(){
-		return $this->iddestino;
+	public function getDestinoID() {
+		return $this->destinoID;
 	}
 
-	public function setIddestino($iddestino){
-		$this->iddestino = $iddestino;
+	public function setDestinoID($destinoID) {
+		$this->destinoID = $destinoID;
+		return $this;
 	}
 
-	public function getNombre(){
+	public function getNombre() {
 		return $this->nombre;
 	}
 
-	public function setNombre($nombre){
+	public function setNombre($nombre) {
 		$this->nombre = $nombre;
+		return $this;
 	}
 
-	public function getUbicacion(){
-		return $this->ubicacion;
+	public function getLugar() {
+		return $this->lugar;
 	}
 
-	public function setUbicacion($ubicacion){
-		$this->ubicacion = $ubicacion;
+	public function setLugar($lugar) {
+		$this->lugar = $lugar;
+		return $this;
 	}
 
-	public function getFoto(){
+	public function getDescripcion() {
+		return $this->descripcion;
+	}
+
+	public function setDescripcion($descripcion) {
+		$this->descripcion = $descripcion;
+		return $this;
+	}
+
+	public function getFoto() {
 		return $this->foto;
 	}
 
-	public function setFoto($foto){
+	public function setFoto($foto) {
 		$this->foto = $foto;
+		return $this;
 	}
 
 	
