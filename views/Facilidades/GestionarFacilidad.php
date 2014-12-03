@@ -1,36 +1,37 @@
 <?php
 
 include('/../../daos/DestinoDAO.php');	
-include('/../../daos/FacilidadDAO.php');		
+include('/../../daos/FacilidadDAO.php');
+include('/../../daos/TipoFacilidadDAO.php');
 
-	$servicioDAO = new ServicioDAO();
-	$servicio = new Servicio();
+	$facilidadDAO = new FacilidadDAO();
+	$facilidad = new Facilidad();
 
 	if (count($_POST) > 0){
 			
-		$servicio->setServicioID($_POST['txtID']);	
-		$servicio->setNombre($_POST['txtNombre']);			
-		$servicio->setPrecio($_POST['txtPrecio']);	
-		$servicio->setProveedorID($_POST['cmbProveedor']);
+		$facilidad->setIdfacilidad($_POST['txtID']);	
+		$facilidad->setIddestino($_POST['cmbDestino']);			
+		$facilidad->setIdtipofacilidad($_POST['cmbTipoFacilidad']);	
+		$facilidad->setDescripcion($_POST['txtDescripcion']);
 		
 		if($_POST['txtID'] > 0){
-			$servicioDAO->update($servicio);			
+			$facilidadDAO->update($facilidad);			
 		}else{
-			$servicioDAO->insert($servicio);
+			$facilidadDAO->insert($facilidad);
 		}	
-		 header("Location:../Servicios/index.php");	
+		 header("Location:../Facilidades/index.php");	
 		exit();				
 	}else if(isset($_GET['id']) && $_GET['id'] > 0){			
-		$servicio->setServicioID($_GET['id']);
-		$servicioObtenido=$servicioDAO->getByID($servicio)[0];
-		$servicio->setServicioID($servicioObtenido->ServicioID);
-		$servicio->setNombre($servicioObtenido->Nombre);
-		$servicio->setPrecio($servicioObtenido->Precio);
-		$servicio->setProveedorID($servicioObtenido->ProveedorID);
-	}else if(isset($_GET['eliminarServicio']) && $_GET['eliminarServicio']>0){
-		$servicio->setServicioID($_GET['eliminarServicio']);
-		$servicioDAO->delete($servicio);
-		header("Location:../Servicios/index.php");
+		$facilidad->setIdfacilidad($_GET['id']);
+		$facilidadObtenida=$facilidadDAO->getByID($facilidad)[0];
+		$facilidad->setIdfacilidad($facilidadObtenida->idfacilidad);
+		$facilidad->setIddestino($facilidadObtenida->iddestino);
+		$facilidad->setIdtipofacilidad($facilidadObtenida->idtipofacilidad);
+		$facilidad->setDescripcion($facilidadObtenida->descripcion);
+	}else if(isset($_GET['eliminarFacilidad']) && $_GET['eliminarFacilidad']>0){
+		$facilidad->setIdfacilidad($_GET['eliminarFacilidad']);
+		$facilidadDAO->delete($facilidad);
+		header("Location:../Facilidades/index.php");
 		exit();		
 	}
 	
@@ -44,7 +45,7 @@ include('/../../daos/FacilidadDAO.php');
 
 <body>
 
-	<form id="FormularioDeServicio" method="POST" action="">
+	<form id="FormularioDeFacilidad" method="POST" action="">
 	
 	
 		<h2>Servicio</h2>
@@ -52,42 +53,62 @@ include('/../../daos/FacilidadDAO.php');
 		
 			<tr style="display:none;">
 				<td>ID:</td>
-				<td><input type='text' id='txtID' name='txtID' value="<?php echo $servicio->getServicioID() ?>"/></td>
+				<td><input type='text' id='txtID' name='txtID' value="<?php echo $facilidad->getIdfacilidad() ?>"/></td>
 			</tr>
 			
 			<tr>
-				<td>Nombre:</td>
-				<td><input type='text' id='txtNombre' maxlength="50" name='txtNombre' value="<?php echo $servicio->getNombre()?>"/></td>
+				<td>Descripcion:</td>
+				<td><input type='text' required id='txtDescripcion' maxlength="50" name='txtDescripcion' 
+				value="<?php echo $facilidad->getDescripcion()?>"/></td>
 			</tr>
 			<tr>
-				<td>Precio:</td>
-				<td><input type='number' min="0" step="any" id='txtPrecio'  name='txtPrecio'value="<?php echo $servicio->getPrecio()?>"/></td>
-			</tr>
-			<tr>
-				<td>Proveedor:</td>
+				<td>Destino:</td>
 				<td>
-				<select id='cmbProveedor' name='cmbProveedor' >
+				<select id='cmbDestino' name='cmbDestino' >
 				
 				
 				<?php
-					$personaDAO = new PersonaDAO();
-					$persona = new Persona();
+					$destinoDAO = new DestinoDAO();
+					$destino = new Destino();
 					
-					$personas = $personaDAO->get($persona);
+					$destinos = $destinoDAO->get($destino);
 				
 					
-					foreach($personas as $persona){
-					if($persona->PersonaID != $servicio->getProveedorID()){
-						echo "<option value='$persona->PersonaID'>$persona->Nombre</option>";			
+					foreach($destinos as $destino){
+					if($destino->iddestino != $facilidad->getIddestino()){
+						echo "<option value='$destino->iddestino'>$destino->nombre</option>";			
 					}else{
-						echo "<option selected='selected' value='$persona->PersonaID'>$persona->Nombre</option>";	
+						echo "<option selected='selected' value='$destino->iddestino'>$destino->nombre</option>";	
 					}
 				}
 				?>
 				</select>
 				</td>
 			</tr>
-		
+			<tr>
+				<td>Tipo Facilidad:</td>
+				<td>
+				<select id='cmbTipoFacilidad' name='cmbTipoFacilidad' >
+				
+				
+				<?php
+					$tipoFacilidadDAO = new TipoFacilidadDAO();
+					$tipoFacilidad = new TipoFacilidad();
+					
+					$tiposFacilidades = $tipoFacilidadDAO->get($tipoFacilidad);
+				
+					
+					foreach($tiposFacilidades as $tipoFacilidad){
+					if($tipoFacilidad->idtipofacilidad != $tipoFacilidad->getIdtipofacilidad()){
+						echo "<option value='$tipoFacilidad->idtipofacilidad'>$tipoFacilidad->nombre</option>";			
+					}else{
+						echo "<option selected='selected' value='$tipoFacilidad->idtipofacilidad'>$tipoFacilidad->nombre</option>";	
+					}
+				}
+				?>
+				</select>
+				</td>
+			</tr>
 		</table>
 		<button type="submit">Aceptar</button>
 		<a href="GestionarFacilidad.php" >Nuevo<a>
