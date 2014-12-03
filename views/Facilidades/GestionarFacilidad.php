@@ -48,7 +48,7 @@ include('/../../daos/TipoFacilidadDAO.php');
 	<form id="FormularioDeFacilidad" method="POST" action="">
 	
 	
-		<h2>Servicio</h2>
+		<h2>Facilidad</h2>
 		<table>
 		
 			<tr style="display:none;">
@@ -96,10 +96,10 @@ include('/../../daos/TipoFacilidadDAO.php');
 					$tipoFacilidad = new TipoFacilidad();
 					
 					$tiposFacilidades = $tipoFacilidadDAO->get($tipoFacilidad);
-				
+					
 					
 					foreach($tiposFacilidades as $tipoFacilidad){
-					if($tipoFacilidad->idtipofacilidad != $tipoFacilidad->getIdtipofacilidad()){
+					if($tipoFacilidad->idtipofacilidad != $facilidad->getIdtipofacilidad()){
 						echo "<option value='$tipoFacilidad->idtipofacilidad'>$tipoFacilidad->nombre</option>";			
 					}else{
 						echo "<option selected='selected' value='$tipoFacilidad->idtipofacilidad'>$tipoFacilidad->nombre</option>";	
@@ -112,6 +112,7 @@ include('/../../daos/TipoFacilidadDAO.php');
 		</table>
 		<button type="submit">Aceptar</button>
 		<a href="GestionarFacilidad.php" >Nuevo<a>
+		<a href="index.php">Ver Facilidades</a>
 	</form>
 </body>
 
