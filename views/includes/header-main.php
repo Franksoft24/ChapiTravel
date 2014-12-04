@@ -20,8 +20,8 @@
 
 <body>
     <header id="headerMain">
-    	<img src="../Image/LogoCT.svg" width="5%" alt="logo.png">
-    	<div class="user">Chapiadora</div>
+    	<img src="../Image/Logo Chapi Travel Official-01.png" width="15%" alt="logo.png">
+    	<!--div class="user">Chapiadora</div-->
     </header>
     <nav id="menuMain">
     	<ul>

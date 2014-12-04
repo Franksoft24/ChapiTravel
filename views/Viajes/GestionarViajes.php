@@ -160,27 +160,22 @@ include('/../../daos/RutaDAO.php');
 
 								$destinosDelViaje = $viajeDAO->obtenerDestinosEnViaje($viajeId);
 								foreach($destinosDelViaje as $destino) {
-									if($destinos->nombre == ""){}
-									else{
 										echo "<li>
 										<tr>
 											<td>$destino->nombre</td>
 											<td><input type='checkbox' checked='checked' name='chkDestinos[]' value='$destino->iddestino'/></td>
 										</tr>
 										</li>";
-									}
 								}
 								$destinosFaltantes = $viajeDAO->obtenerDestinosFueraDeViaje($viajeId);
 								foreach($destinosFaltantes as $destino) {
-									if($destino->nombre == ""){
-									}else{
+									
 										echo "<li>
 											<tr>
 												<td>$destino->nombre</td>
 												<td><input type='checkbox' name='chkDestinos[]' value='$destino->iddestino'/></td>
 											</tr>
 										</li>";
-									}
 								}
 							?>
 						</ul>

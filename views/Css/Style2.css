@@ -1,12 +1,18 @@
 @charset "utf-8";
 /* CSS Document */
+/*
+	*Templaste: chapitravel 1.0
+	*Developed by Franksoft
+	*Description: "Esta plantilla fue desarrollada para la agencia de viaje chapi travel con tegnologia css3 y html5."
+	*esta hoja de estilo se le aplicara solo a el main
+*/
 body
 {
 	background-color:#ecf0f1;
 	font-family: 'Roboto', sans-serif;
 	color:#2c3e50;
 	font-size:15px;
-	background-image:url(../Image/Sin%20t%C3%ADtulo-1-01.jpg);
+	background-image:url(../Image/background-crud.jpg);
 	background-position:bottom right;
 	background-size:75%;
 	background-attachment:fixed;
@@ -49,16 +55,19 @@ nav ul
 nav ul li
 {
 	padding:3%;
+	background-color:#27ae60;
 }
 nav ul li a 
 {
 	padding-left:10%;
 	/*width:25%;*/
 	text-transform:uppercase;
+	width:95%;
 	color:#ecf0f1;
 	font-family: 'Bree Serif', serif;
 	font-size:23px;
 	text-decoration:none;
+	overflow:hidden;
 }
 nav ul li:hover
 {
