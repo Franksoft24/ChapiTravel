@@ -42,7 +42,7 @@
         </ul>
     </nav>
     <section class="formRegistro">
-    	<center><div id="form-singup">
+    	<div id="form-singup">
         	<h1>Registrarse</h1>
             <form action="personas.php" method="post">
             	<table>
@@ -84,7 +84,7 @@
                     </tr>
                 </table>
             </form>
-        </div></center>
+        </div>
     </section>
     <footer>
     	<h6>Desarrollado por chapisoft. Con tecnología PHP, HTML5 y CSS3.</h6>

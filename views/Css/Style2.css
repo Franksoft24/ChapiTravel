@@ -34,15 +34,10 @@ nav ul li
 {
 	padding:3%;
 }
-
-nav ul li > a
-{
-	color: #ecf0f1;
-	text-decoration:none;
-}
 nav ul li:hover
 {
-	background-color:#27ae60;
+	background-color:#27AE60;
+
 }
 .user
 {
