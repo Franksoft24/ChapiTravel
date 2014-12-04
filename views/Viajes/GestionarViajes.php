@@ -88,7 +88,7 @@ include('/../../daos/RutaDAO.php');
 	<style>
 		#destinos li * {
 			cursor: move;
-		}
+		}		
 
 		#destinos li input {
 			cursor: pointer;
@@ -98,7 +98,7 @@ include('/../../daos/RutaDAO.php');
 	<form id="FormularioDeViaje" method="POST" action="" enctype="multipart/form-data">
 	
 	
-		<h2>Viajes</h2>
+		<div class="titleBar"><div class="title"><h2>Viajes</h2></div><div class="jkd"></div></div>
 		<table>
 		
 			<tr style="display:none;">
@@ -112,11 +112,11 @@ include('/../../daos/RutaDAO.php');
 			</tr>
 			<tr>
 				<td>Fecha partida:</td>
-				<td><input type='date' id='txtFechaPartida' name='txtFechaPartida' required value="<?php echo $viaje->getFechaPartida()?>"/></td>
+				<td><input type='date' id='txtFechaPartida' placeholder="yyyy-mm-dd" name='txtFechaPartida' required value="<?php echo $viaje->getFechaPartida()?>"/></td>
 			</tr>
 			<tr>
 				<td>Fecha llegada:</td>
-				<td><input type='date' id='txtFechaLlegada' name='txtFechaLlegada' required value="<?php echo $viaje->getFechaLlegada()?>"/></td>
+				<td><input type='date' id='txtFechaLlegada' name='txtFechaLlegada' placeholder="yyyy-mm-dd" required value="<?php echo $viaje->getFechaLlegada()?>"/></td>
 			</tr>
 			<tr>
 				<td>Precio:</td>
@@ -140,46 +140,68 @@ include('/../../daos/RutaDAO.php');
 		</table>
 
 		<fieldset>
-			<legend>Ruta</legend>
+			<legend><h2>Ruta:</h2></legend>
 
 			<table>
 				<tr>
 					<td>
 						Destino:
 					</td>
+                    <td></td>
+                 </tr>
+                 <tr>
+                 	<td></td>
 					<td>
-						<ol id='destinos'>
+                    	<table class='forse'>
+						<ul id='destinos'>
 							<?php
 								$viajeDAO = new ViajeDAO();
 								$viajeId = $viaje->getViajeID();
 
 								$destinosDelViaje = $viajeDAO->obtenerDestinosEnViaje($viajeId);
 								foreach($destinosDelViaje as $destino) {
-								echo "<li>
-								<label>
-									<input type='checkbox' checked='checked' name='chkDestinos[]' value='$destino->iddestino'/>
-									$destino->nombre
-								</label> </li>
-									";	
+									if($destinos->nombre == ""){}
+									else{
+										echo "<li>
+										<tr>
+											<td>$destino->nombre</td>
+											<td><input type='checkbox' checked='checked' name='chkDestinos[]' value='$destino->iddestino'/></td>
+										</tr>
+										</li>";
+									}
 								}
-
 								$destinosFaltantes = $viajeDAO->obtenerDestinosFueraDeViaje($viajeId);
 								foreach($destinosFaltantes as $destino) {
-								echo "<li>
-								<label>
-									<input type='checkbox' name='chkDestinos[]' value='$destino->iddestino'/>
-									$destino->nombre
-								</label> </li>
-									";	
+									if($destino->nombre == ""){
+									}else{
+										echo "<li>
+											<tr>
+												<td>$destino->nombre</td>
+												<td><input type='checkbox' name='chkDestinos[]' value='$destino->iddestino'/></td>
+											</tr>
+										</li>";
+									}
 								}
 							?>
-						</ol>
+						</ul>
+                        </table>
 					</td>
 				</tr>
+                <tr>
+                	<td></td>
+                    <td>
+                    	<button type="submit" class="aceptar">Aceptar</button>
+                    </td>
+                </tr>
+                <tr>
+                	<td></td>
+                    <td>
+                    	<a href="GestionarViajes.php" class="link">Nuevo</a>
+                    </td>
+                </tr>
 			</table>
 		</fieldset>
-		<button type="submit">Aceptar</button>
-		<a href="GestionarViajes.php">Nuevo</a>
+		
 	</form>
 
 <script type="text/javascript">

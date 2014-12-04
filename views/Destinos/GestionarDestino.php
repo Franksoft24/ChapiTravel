@@ -71,7 +71,7 @@ include('/../../daos/DestinoDAO.php');
 	<form id="FormularioDeDestino" method="POST" action="" enctype="multipart/form-data">
 	
 	
-		<h2>Destino</h2>
+		<div class="titleBar"><div class="title"><h2>Destinos</h2></div><div class="jkd"></div></div>
 		<table>
 		
 			<tr style="display:none;">
@@ -86,7 +86,7 @@ include('/../../daos/DestinoDAO.php');
 			<tr>
 				<td>Ubicacion:</td>
 				<td>
-					<textarea name="txtUbicacion" required id="txtUbicacion" maxlength="400" cols="30" rows="10"><?php echo $destino->getUbicacion()?></textarea>
+					<textarea name="txtUbicacion" required id="txtUbicacion" maxlength="400" ><?php echo $destino->getUbicacion()?></textarea>
 			</tr>
 			<tr>
 				<td>Foto:</td>
@@ -102,10 +102,21 @@ include('/../../daos/DestinoDAO.php');
 					?>
 				</td>
 			</tr>
-		
+			<tr>
+            	<td></td>
+                <td>
+                	<button type="submit" class="aceptar">Aceptar</button>
+                </td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td>
+                	<a href="GestionarDestino.php" class="link">Nuevo</a>
+                </td>
+            </tr>
 		</table>
-		<button type="submit">Aceptar</button>
-		<a href="GestionarDestino.php" >Nuevo</a>
+		
+		
 	</form>
 <?php include_once('/../includes/footer-main.php'); ?>
 

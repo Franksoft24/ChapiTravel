@@ -6,6 +6,11 @@ body
 	font-family: 'Roboto', sans-serif;
 	color:#2c3e50;
 	font-size:15px;
+	background-image:url(../Image/Sin%20t%C3%ADtulo-1-01.jpg);
+	background-position:bottom right;
+	background-size:75%;
+	background-attachment:fixed;
+	background-repeat:no-repeat;
 }
 header
 {
@@ -15,11 +20,9 @@ header
 	padding-left:3%;
 	padding-right:10%;
 	position:fixed;
-	
 }
 .link
 {
-	float:left;
 	padding:3%;
 	text-transform:uppercase;
 	font-weight:bold;
@@ -92,7 +95,7 @@ input, select, textarea
 	width:90%;
 	border-radius:5px;
 	padding:5%;
-	margin-bottom:2%;
+	margin-bottom:1%;
 	background-color:#ecf0f1;
 }
 table
@@ -102,12 +105,14 @@ table
 .crud
 {
 	width:100%;
+	margin-bottom:5%;
 }
 thead
 {
 	background-color:#8E8E8E;
 	text-transform:uppercase;
 	color:#ecf0f1;
+	text-align:left;
 }
 .claro
 {
@@ -118,6 +123,10 @@ thead
 	background-color:#C8C8C8;
 }
 table tr td, table tr th
+{
+	/*padding:3%;*/
+}
+.crud tr td, .crud tr th
 {
 	padding:3%;
 }
@@ -183,4 +192,11 @@ table tr td, table tr th
 	padding-top:2%;
 	color:#fff;
 	font-size:24px;
+}
+/*
+	*Los forses echos en este proyecto se pondran todos aquí
+*/
+.forse
+{
+	width:100%;
 }

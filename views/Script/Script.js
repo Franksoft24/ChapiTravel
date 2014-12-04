@@ -50,7 +50,8 @@ window.onload=function()
 {//Se haran todas las inyeciones css que sean necesaria para asegurar la integridad de la pagina
 	var height = document.getElementById('headerMain').scrollHeight;
 	var pageHeight = document.documentElement.clientHeight;
-	var heightMenu = pageHeight-height;
+	var heightMenu = pageHeight-height +3;
+	height -= 3;
 	document.getElementById('menuMain').style.top=height+"px";
 	document.getElementById('menuMain').style.height=heightMenu+"px";
 }

@@ -12,7 +12,7 @@
 					<th>Nombre</th>
 					<th>Precio</th>
 					<th>Codigo</th>
-					<th><a href="GestionarServicio.php" class="link" style="color:#fff; float:none">Nuevo</a></th>
+					<th><a href="GestionarServicio.php" class="link" style="color:#fff; float:none"><img src="../Image/iconos/Agregar.png" alt="Nuevo" width="46px" height="44px"></a></th>
 				</tr>			
 			</thead>
 			<tbody>
@@ -32,7 +32,7 @@
 						<td>$servicio->descripcion</td>
 						<td>$servicio->precio</td>	
 						<td>$servicio->codigo</td>							
-						<td><a href='GestionarServicio.php?id=$servicio->idservicio' class='link'>Editar</a><a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio' class='link'>Eliminar</a></td>
+						<td><a href='GestionarServicio.php?id=$servicio->idservicio' class='link'><img src='../Image/iconos/Editar.png' alt='Editar' width='26px' height='24px'></a><a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio' class='link'><img src='../Image/iconos/Eliminar-01.png' alt='Eliminar' width='26px' height='24px'></a></td>
 						</tr>";
 				}
 				else
@@ -42,7 +42,7 @@
 						<td>$servicio->descripcion</td>
 						<td>$servicio->precio</td>	
 						<td>$servicio->codigo</td>							
-						<td><a href='GestionarServicio.php?id=$servicio->idservicio' class='link'>Editar</a><a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio' class='link'>Eliminar</a></td>
+						<td><a href='GestionarServicio.php?id=$servicio->idservicio' class='link'><img src='../Image/iconos/Editar.png' alt='Editar' width='26px' height='24px'></a><a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio' class='link'><img src='../Image/iconos/Eliminar-01.png' alt='Eliminar' width='26px' height='24px'></a></td>
 						</tr>";
 				}
 							

@@ -14,7 +14,7 @@
 					<th>Email</th>
 					<th>Telefono</th>
 					
-					<th><a href="GestionarProveedores.php" class="link" style="color:#fff;float:none">Nuevo</a></th>
+					<th><a href="GestionarProveedores.php" class="link" style="color:#fff;float:none"><img src="../Image/iconos/Agregar.png" alt="Nuevo" width="46px" height="44px"></a></th>
 				</tr>			
 			</thead>
 			<tbody>
@@ -37,7 +37,7 @@
 						<td>$persona->email</td>
 						<td>$persona->telefono</td>
 											
-						<td><a href='GestionarProveedores.php?id=$persona->idproveedor' class='link'>Editar</a>  <a href='GestionarProveedores.php?eliminarProveedor=$persona->idproveedor' class='link'>Eliminar</a></td>
+						<td><a href='GestionarProveedores.php?id=$persona->idproveedor' class='link'><img src='../Image/iconos/Editar.png' alt='Editar' width='26px' height='24px'></a>  <a href='GestionarProveedores.php?eliminarProveedor=$persona->idproveedor' class='link'><img src='../Image/iconos/Eliminar-01.png' alt='Eliminar' width='26px' height='24px'></a></td>
 						</tr>";	
 				}else{
 					echo "<tr class='oscuro'>
@@ -48,7 +48,7 @@
 						<td>$persona->email</td>
 						<td>$persona->telefono</td>
 											
-						<td><a href='GestionarProveedores.php?id=$persona->idproveedor' class='link'>Editar</a>  <a href='GestionarProveedores.php?eliminarProveedor=$persona->idproveedor' class='link'>Eliminar</a></td>
+						<td><a href='GestionarProveedores.php?id=$persona->idproveedor' class='link'><img src='../Image/iconos/Editar.png' alt='Editar' width='26px' height='24px'></a>  <a href='GestionarProveedores.php?eliminarProveedor=$persona->idproveedor' class='link'><img src='../Image/iconos/Eliminar-01.png' alt='Eliminar' width='26px' height='24px'></a></td>
 						</tr>";
 				}
 						
