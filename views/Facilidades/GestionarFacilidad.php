@@ -37,13 +37,7 @@ include('/../../daos/TipoFacilidadDAO.php');
 	
 	
 ?>
-
-<html>
-<head>
-
-</head>
-
-<body>
+<?php include_once('/../includes/header-main.php'); ?>
 
 	<form id="FormularioDeFacilidad" method="POST" action="">
 	
@@ -111,10 +105,6 @@ include('/../../daos/TipoFacilidadDAO.php');
 			</tr>
 		</table>
 		<button type="submit">Aceptar</button>
-		<a href="GestionarFacilidad.php" >Nuevo<a>
-		<a href="index.php">Ver Facilidades</a>
+		<a href="GestionarFacilidad.php" >Nuevo</a>
 	</form>
-</body>
-
-</html>
-
+<?php include_once('/../includes/footer-main.php'); ?>

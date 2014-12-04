@@ -2,12 +2,9 @@
 	include('/../../daos/ServicioDAO.php');		
 ?>
 
-<html>
-	<head>
-	</head>
-	<body>
+<?php include_once('/../includes/header-main.php'); ?>
 		<h2>Servicios</h2>
-		<a href="GestionarServicio.php" >Nuevo<a>
+		<a href="GestionarServicio.php" >Nuevo</a>
 		<table>
 			<thead>
 				<tr>
@@ -42,6 +39,4 @@
 			</tbody>
 
 		</table>
-	</body>
-	
-</html>
+<?php include_once('/../includes/footer-main.php'); ?>

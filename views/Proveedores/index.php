@@ -2,12 +2,9 @@
 	include('/../../daos/ProveedorDAO.php');		
 ?>
 
-<html>
-	<head>
-	</head>
-	<body>
+<?php include_once('/../includes/header-main.php'); ?>
 		<h2>Proveedores</h2>
-		<a href="GestionarProveedores.php" >Nuevo<a>
+		<a href="GestionarProveedores.php" >Nuevo</a>
 		<table>
 			<thead>
 				<tr>
@@ -47,6 +44,4 @@
 			</tbody>
 
 		</table>
-	</body>
-	
-</html>
+<?php include_once('/../includes/footer-main.php'); ?>

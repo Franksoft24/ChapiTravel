@@ -49,12 +49,7 @@ include('/../../daos/ProveedorDAO.php');
 	
 ?>
 
-<html>
-<head>
-
-</head>
-
-<body>
+<?php include_once('/../includes/header-main.php'); ?>
 
 	<form id="FormularioDeproveedor" method="POST" action="">
 	
@@ -104,9 +99,7 @@ include('/../../daos/ProveedorDAO.php');
 			</tr>
 		</table>
 		<button type="submit">Aceptar</button>
-		<a href="index.php" >Volver Atras<a>
+		<a href="index.php" >Volver Atras</a>
 	</form>
-</body>
-
-</html>
+<?php include_once('/../includes/footer-main.php'); ?>
 

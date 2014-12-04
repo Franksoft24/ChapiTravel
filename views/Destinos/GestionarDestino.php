@@ -67,13 +67,7 @@ include('/../../daos/DestinoDAO.php');
 	
 ?>
 
-<html>
-<head>
-
-</head>
-
-<body>
-
+<?php include_once('/../includes/header-main.php'); ?>
 	<form id="FormularioDeDestino" method="POST" action="" enctype="multipart/form-data">
 	
 	
@@ -111,10 +105,7 @@ include('/../../daos/DestinoDAO.php');
 		
 		</table>
 		<button type="submit">Aceptar</button>
-		<a href="GestionarDestino.php" >Nuevo<a>
-		<a href="index.php" >Ver Destinos<a>
+		<a href="GestionarDestino.php" >Nuevo</a>
 	</form>
-</body>
-
-</html>
+<?php include_once('/../includes/footer-main.php'); ?>
 

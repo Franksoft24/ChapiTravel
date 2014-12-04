@@ -84,8 +84,6 @@ include('/../../daos/RutaDAO.php');
 	
 ?>
 
-<html>
-<head>
 	<script type="text/javascript" src="Sortable.js"></script>
 	<style>
 		#destinos li * {
@@ -96,10 +94,7 @@ include('/../../daos/RutaDAO.php');
 			cursor: pointer;
 		}
 	</style>
-</head>
-
-<body>
-
+<?php include_once('/../includes/header-main.php'); ?>
 	<form id="FormularioDeViaje" method="POST" action="" enctype="multipart/form-data">
 	
 	
@@ -184,9 +179,8 @@ include('/../../daos/RutaDAO.php');
 			</table>
 		</fieldset>
 		<button type="submit">Aceptar</button>
-		<a href="GestionarViajes.php">Nuevo<a>
+		<a href="GestionarViajes.php">Nuevo</a>
 	</form>
-</body>
 
 <script type="text/javascript">
 	document.onreadystatechange = function() {
@@ -195,5 +189,4 @@ include('/../../daos/RutaDAO.php');
 	};
 </script>
 
-</html>
-
+<?php include_once('/../includes/footer-main.php'); ?>

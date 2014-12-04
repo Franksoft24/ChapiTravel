@@ -2,12 +2,9 @@
 	include('/../../daos/ViajeDAO.php');		
 ?>
 
-<html>
-	<head>
-	</head>
-	<body>
-		<h2>Servicios</h2>
-		<a href="GestionarViajes.php">Nuevo<a>
+<?php include_once('/../includes/header-main.php'); ?>
+		<h2>Viajes</h2>
+		<a href="GestionarViajes.php">Nuevo</a>
 		<table>
 			<thead>
 				<tr>
@@ -43,6 +40,4 @@
 			</tbody>
 
 		</table>
-	</body>
-	
-</html>
+<?php include_once('/../includes/footer-main.php'); ?>
