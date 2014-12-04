@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	background-color:#ecf0f1;
+}
+header
+{
+	background-color:#2980b9;/*#27ae60;*/
+	width:87%;
+	overflow:hidden;
+	height:25%;
+	padding-left:3%;
+	padding-right:10%;
+	
+}
+nav
+{
+	background-color:#2ecc71;
+	float:left;
+	position:fixed;
+	height:95%;
+	width:25%;
+	text-transform:uppercase;
+	color:#ecf0f1;
+	font-family: 'Bree Serif', serif;
+	font-size:23px;
+}
+nav ul
+{
+	padding-left: 10%;
+}
+nav ul li
+{
+	padding:3%;
+}
+nav ul li:hover
+{
+	background-color:#27ae60;
+}
+.user
+{
+	float: right;
+	padding-top:1%;
+}
+.content
+{
+	position:absolute;
+	padding-left:5%;
+	padding-right:10%;
+	width:60%;
+	left:25%;
+	top:5%;
+	padding-top:5%;
+}
