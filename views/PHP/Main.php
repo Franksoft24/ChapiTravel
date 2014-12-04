@@ -18,28 +18,6 @@
 </head>
 
 <body>
-	<!--?php
-	
-		session_start();
-		if (isset($_SESSION['username'])){
-			include("conection.php");	
-			$conection = mysql_connect($host, $user, $password);
-			$dbselector = mysql_select_db($db,$conection);
-			if (!$conection || !$dbselector){
-				echo "<script type='text/javascript'>
-						alert('Error al conectar la base de datos')
-						location.href='Log-in.php'	
-					</script>";
-			}else{
-				$username = mysql_query("SELECT Nombres FROM personas WHERE DocumentoIdentidad = '$_SESSION[DocumentoIdentidad]'");
-				$selected = mysql_fetch_array($personas);
-				echo "<script type='text/javascript'> alert('$selected[Nombres]') </script>";
-			}
-		}else{
-			header("location:Log-in.php");
-		}
-	?>
-    <a href="cerrarsecion.php">Cerrar Secion</a-->
     <header>
     	<img src="../Image/LogoCT.svg" width="5%" alt="logo.png">
     	<div class="user">Chapiadora</div>

@@ -54,7 +54,7 @@ include('/../../daos/ProveedorDAO.php');
 	<form id="FormularioDeproveedor" method="POST" action="">
 	
 	
-		<h2>proveedor</h2>
+		<div class="titleBar"><div class="title"><h2>Proveedores</h2></div><div class="jkd"></div></div>
 		<table>
 		
 			<tr style="display:none;">
@@ -97,9 +97,19 @@ include('/../../daos/ProveedorDAO.php');
 				</select>
 				</td>
 			</tr>
+            <tr>
+            	<td></td>
+                <td>
+            		<button type="submit" class="aceptar">Aceptar</button>
+                </td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td>
+            		<a href="index.php" class="link">Volver Atras</a>
+                </td>
+            </tr>
 		</table>
-		<button type="submit">Aceptar</button>
-		<a href="index.php" >Volver Atras</a>
 	</form>
 <?php include_once('/../includes/footer-main.php'); ?>
 

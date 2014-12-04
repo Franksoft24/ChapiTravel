@@ -79,6 +79,7 @@
                         <td colspan="2"><input type="password" name="rpassword" id="rpassword" placeholder="******" required></td>
                     </tr>
                     <tr>
+                    	<td></td>
                     	<td><input type="submit" value="Aceptar" class="aceptar" onFocus="verify()"></td>
                         <td><input type="reset" value="Cancelar" class="cancelar"></td>
                     </tr>

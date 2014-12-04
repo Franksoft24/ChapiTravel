@@ -3,16 +3,16 @@
 ?>
 
 <?php include_once('/../includes/header-main.php'); ?>
-		<h2>Servicios</h2>
-		<a href="GestionarServicio.php" >Nuevo</a>
-		<table>
+		<div class="titleBar"><div class="title"><h2>Servicios</h2></div><div class="jkd"></div></div>
+		
+		<table class="crud">
 			<thead>
 				<tr>
 					<th style="display:none;">ID</th>
 					<th>Nombre</th>
 					<th>Precio</th>
 					<th>Codigo</th>
-					<th></th>
+					<th><a href="GestionarServicio.php" class="link" style="color:#fff; float:none">Nuevo</a></th>
 				</tr>			
 			</thead>
 			<tbody>
@@ -22,16 +22,30 @@
 				
 				$servicios = $servicioDAO->get($servicio);
 			
-				
+				$contador = 0;
 				foreach($servicios as $servicio){
-			
-				echo "<tr>
+				$contador += 1;
+				if (($contador%2)!=0)
+				{
+					echo "<tr class='oscuro'>
 						<td style='display:none;'>$servicio->idservicio</td>
 						<td>$servicio->descripcion</td>
 						<td>$servicio->precio</td>	
 						<td>$servicio->codigo</td>							
-						<td><a href='GestionarServicio.php?id=$servicio->idservicio'>Editar</a> - <a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio'>Eliminar</a></td>
-						</tr>";			
+						<td><a href='GestionarServicio.php?id=$servicio->idservicio' class='link'>Editar</a><a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio' class='link'>Eliminar</a></td>
+						</tr>";
+				}
+				else
+				{
+					echo "<tr class='claro'>
+						<td style='display:none;'>$servicio->idservicio</td>
+						<td>$servicio->descripcion</td>
+						<td>$servicio->precio</td>	
+						<td>$servicio->codigo</td>							
+						<td><a href='GestionarServicio.php?id=$servicio->idservicio' class='link'>Editar</a><a href='GestionarServicio.php?eliminarServicio=$servicio->idservicio' class='link'>Eliminar</a></td>
+						</tr>";
+				}
+							
 				}
 			
 			?>

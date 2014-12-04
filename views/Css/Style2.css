@@ -3,40 +3,63 @@
 body
 {
 	background-color:#ecf0f1;
+	font-family: 'Roboto', sans-serif;
+	color:#2c3e50;
+	font-size:15px;
 }
 header
 {
 	background-color:#2980b9;/*#27ae60;*/
 	width:87%;
 	overflow:hidden;
-	height:25%;
 	padding-left:3%;
 	padding-right:10%;
+	position:fixed;
 	
+}
+.link
+{
+	float:left;
+	padding:3%;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:20px;
+	color:#2980b9;
+	text-decoration:underline;
+}
+.link:hover
+{
+	color:#3498db;
+	text-decoration:none;
 }
 nav
 {
-	background-color:#2ecc71;
+	background-color:#27ae60;/*#2ecc71;*/
 	float:left;
 	position:fixed;
-	height:95%;
 	width:25%;
-	text-transform:uppercase;
-	color:#ecf0f1;
-	font-family: 'Bree Serif', serif;
-	font-size:23px;
 }
 nav ul
 {
-	padding-left: 10%;
+	/*padding-left: 10%;*/
 }
 nav ul li
 {
 	padding:3%;
 }
+nav ul li a 
+{
+	padding-left:10%;
+	/*width:25%;*/
+	text-transform:uppercase;
+	color:#ecf0f1;
+	font-family: 'Bree Serif', serif;
+	font-size:23px;
+	text-decoration:none;
+}
 nav ul li:hover
 {
-	background-color:#27AE60;
+	background-color:#2ecc71;/*#27AE60;*/
 
 }
 .user
@@ -46,11 +69,118 @@ nav ul li:hover
 }
 .content
 {
-	position:absolute;
+	/*position:absolute;*/
 	padding-left:5%;
 	padding-right:10%;
-	width:60%;
-	left:25%;
+	/*width:75%;*/
+	margin-left:25%;
 	top:5%;
 	padding-top:5%;
+	overflow:hidden;
+}
+h2
+{
+	font-size:36px;
+	text-transform:uppercase;
+	font-weight:bold;
+	padding-bottom:2%;
+	color:#2980b9;
+	margin-left: 5%;
+}
+input, select, textarea
+{
+	width:90%;
+	border-radius:5px;
+	padding:5%;
+	margin-bottom:2%;
+	background-color:#ecf0f1;
+}
+table
+{
+	width:45%;
+}
+.crud
+{
+	width:100%;
+}
+thead
+{
+	background-color:#8E8E8E;
+	text-transform:uppercase;
+	color:#ecf0f1;
+}
+.claro
+{
+	background-color:#D5D5D5;
+}
+.oscuro
+{
+	background-color:#C8C8C8;
+}
+table tr td, table tr th
+{
+	padding:3%;
+}
+.aceptar
+{
+	background-color:#27ae60;
+	border-color:#2ecc71;
+	padding:1.5%;
+	text-transform:uppercase;
+	color:#2ecc71;
+	text-shadow:1px 1px 0px #fff, -1px -1px 0px #000;
+	font-size:24px;
+	border-radius:0px;
+	margin:0px;
+	width:100%
+}
+.aceptar:hover
+{
+	background-color:rgba(39,174,96,0.78)
+}
+.cancelar
+{
+	background-color:#c0392b;
+	border-color:#e74c3c;
+	padding:1.5%;
+	text-transform:uppercase;
+	color:#e74c3c;
+	text-shadow:1px 1px 0px #fff, -1px -1px 0px #000;
+	font-size:24px;
+	border-radius:0px;
+	margin:0px;
+	width:100%
+}
+.cancelar:hover
+{
+	background-color:rgba(192,57,43,0.78)
+}
+/*
+	*Estilo de la barra de titulo de los crud
+*/
+.titleBar
+{
+	background-color: #FFE500;
+	/*position:absolute;*/
+	width:100%;
+	overflow:hidden;
+	margin-top:5%;
+	margin-bottom:5%;
+}
+.jkd
+{/*Este nombre de clase nace de la necesidad de que no supe cual poner, la funcion de esta clase es dar un espacio en blanco a la tabla de titulo para uqe se pueda apreciar el efecto 2 colores :p*/
+	float:right;
+	width:5%;
+}
+.title
+{
+	background-color: #8E8E8E;
+	float:left;
+	width:95%;
+}
+.title h2
+{
+	padding-top:2%;
+	color:#fff;
+	font-size:24px;
 }

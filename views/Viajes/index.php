@@ -5,8 +5,8 @@
 <?php include_once('/../includes/header-main.php'); ?>
 		<h2>Viajes</h2>
 		<a href="GestionarViajes.php">Nuevo</a>
-		<table>
-			<thead>
+		<table border='3'>
+        	<thead>
 				<tr>
 					<th style="display:none;">ID</th>
 					<th>Descripcion</th>
@@ -14,9 +14,8 @@
 					<th>Fecha llegada</th>
 					<th>Precio</th>
 					<th></th>
-				</tr>			
-			</thead>
-			<tbody>
+				</tr>
+            </thead>
 			<?php
 				$viajeDAO = new ViajeDAO();
 				
@@ -37,7 +36,6 @@
 			
 			?>
 			
-			</tbody>
 
 		</table>
 <?php include_once('/../includes/footer-main.php'); ?>

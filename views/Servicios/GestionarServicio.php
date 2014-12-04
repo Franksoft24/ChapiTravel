@@ -46,7 +46,7 @@ include('/../../daos/ProveedorDAO.php');
 	<form id="FormularioDeServicio" method="POST" action="">
 	
 	
-		<h2>Servicio</h2>
+		<div class="titleBar"><div class="title"><h2>Servicios</h2></div><div class="jkd"></div></div>
 		<table>
 		
 			<tr style="display:none;">
@@ -96,12 +96,23 @@ include('/../../daos/ProveedorDAO.php');
 				<td>
 				<select id='cmbHabilitado' name='cmbHabilitado' >
 					<option value="1" <?php if($servicio->getHabilitado() == 1){echo "selected='selected'";} ?>>Habilitado</option>
-					<option value="0" <?php if($servicio->getHabilitado() == 0){echo "selected='selected'";} ?>>Deshabilitado</option>
+					<option value="0" <?php if($servicio->getHabilitado() == 0){/*echo "selected='selected'";*/} ?>>Deshabilitado</option>
 				</select>
 				</td>
 			</tr>
+            <tr>
+            	<td></td>
+                <td>
+                	<button type="submit" class="aceptar">Aceptar</button>
+        		</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td>
+                	<a href="Index.php" class="link" >Volver Atras</a>
+        		</td>
+            </tr>
 		</table>
-		<button type="submit">Aceptar</button>
-		<a href="Index.php" >Volver Atras</a>
+		
 	</form>
 <?php include_once('/../includes/footer-main.php'); ?>
