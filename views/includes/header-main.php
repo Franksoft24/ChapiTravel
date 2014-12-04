@@ -28,7 +28,7 @@
         		<li><a href="./../Viajes/">Viajes</a></li>
                 <li><a href="#">Clientes</a></li>
                 <li><a href="./../Servicios/">Servicios</a></li>
-                <li><a href="#">Reservaciones</a></li>
+                <li><a href="./../Reservaciones/">Reservaciones</a></li>
                 <li><a href="./../Destinos/">Destinos</a></li>
                 <li><a href="./../Facilidades/">Facilidades</a></li>
                 <li><a href="./../Proveedores/">Proveedores</a></li>
