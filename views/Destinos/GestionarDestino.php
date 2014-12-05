@@ -60,7 +60,7 @@ include('/../../daos/DestinoDAO.php');
 				unlink($destinoObtenido->foto);
 			}
 		}
-		header("Location:../Destinos/index.php");
+		header("Location:../Destinos/index.php");     
 		exit();		
 	}
 	

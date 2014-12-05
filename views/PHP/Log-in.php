@@ -1,3 +1,15 @@
+<?php
+$m = "";
+if(count($_POST) > 0){
+    if(isset($_POST['correo']) && $_POST['correo'] == "test@gmail.com"){
+        header('Location: /../chapitravel/views/Viajes/');
+    }else{
+        $m = "Contraseña / Email inválido";
+    }
+}
+
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -22,7 +34,7 @@
         	<h1>Log-in</h1>
         </div>
         <div id="formLI"><center>
-        	<form method="post" action="loguear.php">
+        	<form method="post" action="">
             	<table>
                 	<tr>
                     	<td colspan="2"><input type="email" name="correo" placeholder="Correo" required></td>
@@ -33,6 +45,9 @@
                     <tr>
                     	<td width="50%"></td>
                         <td><input type="submit" value="Acceder" class="aceptar"></td>
+                    </tr>
+                    <tr>
+                        <td style="color:black;"><?php echo $m;?></td>
                     </tr>
                 </table>
             </form></center>
